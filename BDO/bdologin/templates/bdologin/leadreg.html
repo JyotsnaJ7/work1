@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href= "{% url 'loginpage' %}" >Log Out</a>
+    </nav>
+    <div class="container">
+    <br>
+    <h1 align="center">Add Lead</h1>
+    <hr>
+    <br>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <br>
+                <input type="submit" class="btn btn-success btn-lg" value="Add Lead">
+                <td><a href="{%url 'createfollowup' %}" class="btn btn-primary btn-lg">Lead Followups</a></td>
+            </form>
+    <br>
+    <br>
+    <table class="table table-dark">
+        <tr>
+            <td><h5>Lead Id</h5></td>
+            <td><h5>Lead Name</h5></td>
+            <td><h5>E-mail Id</h5></td>
+            <td><h5>Phone</h5></td>
+            <td><h5>Status</h5></td>
+            <td><h3>Action</h3></td>
+        </tr>
+        {% for lead in leads %}
+            <tr>
+                <td>{{lead.leadId}}</td>
+                <td>{{lead.leadName}}</td>
+                <td>{{lead.email}}</td>
+                <td>{{lead.phone1}} </td>
+                <td>{{lead.status}}</td>
+                <td><a href="{%url 'leaddetails' lead.id %}" class="btn btn-primary btn-lg">Details</a> </td>
+                <td><a href="{%url 'leadedit' lead.id %}" class="btn btn-primary btn-lg">Edit</a></td>
+            </tr>
+        </div>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
+<style>
+    body{
+    background-color:#F9F9FA;
+    }
+</style>

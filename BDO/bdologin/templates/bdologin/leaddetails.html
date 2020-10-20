@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href= "{% url 'createlead' %}" >Home</a>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <div class="col-4"></div>
+        <img src="{{lead.picture.url}}" height="350" width="600" class="card-img-top">
+        <div>
+                    <p>ID : {{lead.leadId}}</p>
+                    <hr>
+                    <p>Name : {{lead.leadName}}</p>
+                    <hr>
+                    <p>E-mail ID : {{lead.email}}</p>
+                    <hr>
+                    <p>Phone 1 : {{lead.phone1}}</p>
+                    <hr>
+                    <p>Status : {{lead.status}}</p>
+                    <hr>
+                    <p>Company : {{lead.company}}</p>
+                    <hr>
+                    <p>Contact Person : {{lead.contactPerson}}</p>
+                    <hr>
+                    <p>Location : {{lead.location}}</p>
+                    <hr>
+                    <p>Register Date : {{lead.leadRegisterDate}}</p>
+                    <hr>
+                    <p>Phone 2 : {{lead.leadName}}</p>
+                    <hr>
+                    <p>Website Address : {{lead.websiteAddress}}</p>
+                    <hr>
+                    <p>Lead Source : {{lead.leadSource}}</p>
+                    <hr>
+                    <p>Lead Industry : {{lead.leadIndustry}}</p>
+                    <hr>
+                    <p class="card-text">Lead Type : {{lead.leadType}}</p>
+                    <hr>
+                    <p class="card-text">Office Address : {{lead.officeAddress}}</p>
+                    <hr>
+                    <p class="card-text">Additional Notes : {{lead.additionalNotes}}</p>
+ </div>
+</div>
+    </div>
+
+</div>
+</body>
+</html>
+<style>
+    body{
+    background-color:#F9F9FA;
+    }
+</style>

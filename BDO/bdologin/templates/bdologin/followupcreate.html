@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href= "{% url 'createlead' %}" >Home</a>
+    </nav>
+<div align="center" class="container">
+    <br>
+    <br>
+    <br>
+    <h1>Lead Followups</h1>
+    <hr>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <br>
+                <input type="submit" class="btn btn-secondary btn-lg" value="Add">
+                <br>
+                <br>
+                {% for followup in followups %}
+                <p><a href="{%url 'followupview' followup.id %}" class="btn btn-info">View Followup</a></p>
+                <p><a href="{%url 'followupdelete' followup.id %}" class="btn btn-info">Delete</a></p>
+                {% endfor %}
+            </form>
+
+            </div>
+        <div class="col-3"></div>
+
+
+    </div>
+</div>
+</body>
+</html>
+<style>
+    body{
+    background-color:#F9F9FA;
+    }
+</style>

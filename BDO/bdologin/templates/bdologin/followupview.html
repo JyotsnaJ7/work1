@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href= "{% url 'createlead' %}" >Home</a>
+    <a class="navbar-brand" href= "{% url 'createfollowup' %}" >FollowUps</a>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <div class="col-4"></div>
+        <div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+                    <h3>Lead Id : {{followup.lead_Id}}</h3>
+                    <hr>
+                    <h3>Lead Name : {{followup.lead_Name}}</h3>
+                    <hr>
+                    <h3>Date : {{followup.date}}</h3>
+                    <hr>
+                    <h3>Contact Source : {{followup.contactSource}}</h3>
+                    <hr>
+                    <h3>Description : {{followup.description}}</h3>
+                    <hr>
+                    <h3>Notes : {{followup.notes}}</h3>
+            {% for followup in followups %}
+                    <p><a href="{%url 'followupedit' followup.id %}" class="btn btn-danger">Follow Up Edit</a></p>
+
+            {% endfor %}
+ </div>
+</div>
+    </div>
+
+</div>
+
+</body>
+</html>
+<style>
+    body{
+    background-color:#F9F9FA;
+    }
+</style>
